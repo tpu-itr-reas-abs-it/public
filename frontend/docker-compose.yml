@@ -1,0 +1,8 @@
+name: project-under-control-frontend-v2
+
+services:
+  frontend:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-5174}:80"

@@ -1,0 +1,189 @@
+@layer theme, base, primevue, app;
+
+@layer app {
+  :root {
+    --primary: #c64747;
+    --primary-dark: #680202;
+    --green: #4CAF50;
+    --red: #F44336;
+    --white: #FFFFFF;
+    --bg: #F4F7F6;
+    --text: #222732;
+    --text-light: #32334a;
+    --border: #E0E0E0;
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body, #app { height: 100%; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14px;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, p, ul { margin: 0; }
+  ul { padding: 0; }
+  button { font-family: inherit; }
+
+  .p-component { font-family: var(--font); }
+
+  .btn-auth.p-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: all .2s;
+  }
+  .btn-auth.p-button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-gradient.p-button {
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  }
+  .btn-gradient.p-button:not(:disabled):hover {
+    background: linear-gradient(90deg, #b91c1c, #dc2626);
+    color: #fff;
+  }
+
+  .btn-glass.p-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+  }
+  .btn-glass.p-button:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+
+  .auth-card .p-inputtext {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #F1F1F1;
+    color: var(--text);
+    box-shadow: none;
+    transition: all .2s;
+  }
+  .auth-card .p-inputtext:enabled:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #FFFFFF;
+    box-shadow: none;
+  }
+  .auth-card .p-inputtext::placeholder { color: #8D8989; }
+  .auth-card .p-password,
+  .auth-card .p-datepicker { width: 100%; display: flex; }
+  .auth-card .p-textarea { width: 100%; }
+  .auth-card .p-datepicker-input-icon-container { right: 16px; }
+
+  .input-red.p-inputtext,
+  .input-red .p-inputtext,
+  .input-red.p-select,
+  .input-red.p-multiselect,
+  .input-red.p-textarea {
+    background: #fef2f2;
+    border: 2px solid #fecaca;
+    border-radius: 8px;
+    color: #0f172a;
+    font-weight: 500;
+    box-shadow: none;
+    transition: all .15s;
+    width: 100%;
+  }
+  .input-red.p-inputtext,
+  .input-red .p-inputtext,
+  .input-red.p-textarea { padding: 9px 12px; font-size: 14px; }
+  .input-red.p-select .p-select-label,
+  .input-red.p-multiselect .p-multiselect-label { padding: 8px 12px; font-size: 14px; }
+  .input-red.p-multiselect .p-multiselect-label.p-placeholder,
+  .input-red.p-select .p-select-label.p-placeholder { color: #94a3b8; font-weight: 400; }
+  .input-red.p-inputtext::placeholder,
+  .input-red .p-inputtext::placeholder { color: #94a3b8; font-weight: 400; }
+
+  .input-red.p-inputtext:enabled:focus,
+  .input-red .p-inputtext:enabled:focus,
+  .input-red.p-textarea:enabled:focus,
+  .input-red.p-select.p-focus,
+  .input-red.p-multiselect.p-focus {
+    outline: none;
+    background: #fff;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+  }
+  .input-red.p-select.p-disabled,
+  .input-red.p-inputtext:disabled,
+  .input-red .p-inputtext:disabled { opacity: .7; }
+
+  .input-sm.p-inputtext,
+  .input-sm .p-inputtext { padding: 7px 10px; font-size: 13px; }
+  .input-sm.p-select .p-select-label { padding: 6px 10px; font-size: 13px; }
+  .input-sm.p-select .p-select-dropdown { width: 2rem; }
+
+  .p-dialog.app-dialog {
+    border-radius: 16px;
+    border: 4px solid #fecaca;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  .p-dialog.app-dialog .p-dialog-header { padding: 20px 24px 12px; }
+  .p-dialog.app-dialog .p-dialog-content { padding: 0 24px 24px; }
+  .p-dialog.app-dialog .p-dialog-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .p-dialog.app-dialog .p-dialog-title::before {
+    content: '';
+    width: 8px;
+    height: 30px;
+    border-radius: 100px;
+    background: #ef4444;
+    flex-shrink: 0;
+  }
+
+  .p-dialog-mask.p-overlay-mask { backdrop-filter: blur(4px); }
+
+  .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .muted { color: #64748b; }
+
+  .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+  .custom-scroll::-webkit-scrollbar-thumb { background: #fca5a5; border-radius: 3px; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field > label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 2px solid #fee2e2;
+  }
+}
